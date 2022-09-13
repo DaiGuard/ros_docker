@@ -49,6 +49,7 @@ done
 docker run -it -d --gpus all \
     --restart unless-stopped \
     --network host \
+    --privileged \
     --name $USER-ros-$distro \
     --user=$(id -u $USER):$(id -g $USER) \
     --env="DISPLAY" \
@@ -57,5 +58,6 @@ docker run -it -d --gpus all \
     --volume="/etc/shadow:/etc/shadow:ro" \
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
     --volume="$HOME/.ssh:/home/$USER/.ssh" \
+    --volume="$(pwd)/workspace/$distro:$HOME/workspace" \
     $USER/ros:$distro \
     /bin/bash --login
