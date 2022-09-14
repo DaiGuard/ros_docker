@@ -7,9 +7,17 @@ ARG gid=1000
 # 必要パッケージのインストール
 RUN apt-get update && \
     apt-get install -y \
-    apt-utils nano iputils-ping net-tools dnsutils rsync bash-completion expect && \
+    apt-utils nano iputils-ping net-tools dnsutils rsync bash-completion expect wget && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*    
+
+# CUDAインストール
+# RUN wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-keyring_1.0-1_all.deb && \
+#     dpkg -i cuda-keyring_1.0-1_all.deb && \
+#     apt-get update && \
+#     apt-get -y install cuda && \
+#     apt-get clean && \
+#     rm -rf /var/lib/apt/lists/*    
 
 # ローカルユーザーフォルダを作成
 RUN groupadd -g $gid $user && \
