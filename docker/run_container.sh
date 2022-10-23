@@ -53,6 +53,7 @@ docker run -it -d --gpus all \
     --name $USER-ros-$distro \
     --user=$(id -u $USER):$(id -g $USER) \
     --env="DISPLAY" \
+    --volume="/dev:/dev" \
     --volume="/etc/group:/etc/group:ro" \
     --volume="/etc/passwd:/etc/passwd:ro" \
     --volume="/etc/shadow:/etc/shadow:ro" \
