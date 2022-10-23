@@ -2,9 +2,9 @@
 
 ```bash
 # ビルドイメージ
-$ ./docker/build_image.sh
+$ ./docker/build_image.sh -d <branch name>
 # コンテナ起動
-$ ./docker/run_container.sh
+$ ./docker/run_container.sh -d <branch name>
 # コンテナにアタッチ
-$ ./docker/attach_container.sh
+$ ./docker/attach_container.sh -d <branch name>
 ```
