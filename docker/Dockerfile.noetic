@@ -1,0 +1,35 @@
+FROM osrf/ros:noetic-desktop
+
+ARG user=ros
+ARG uid=1000
+ARG gid=1000
+
+# 必要パッケージのインストール
+RUN apt-get update && \
+    apt-get install -y \
+    apt-utils nano iputils-ping net-tools dnsutils rsync bash-completion expect && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*    
+
+# ローカルユーザーフォルダを作成
+RUN groupadd -g $gid $user && \
+    useradd -m $user -b /home -u $uid -g $gid && \
+    echo "${user}   ALL=(ALL)   NOPASSWD:   ALL" >> /etc/sudoers.d/$user && \
+    chmod 0440 /etc/sudoers.d/$user
+
+# ワークディレクトリを作成と設定
+WORKDIR /home/$user
+
+# ローカル環境設定
+RUN echo "source /opt/ros/noetic/setup.bash" >> /home/$user/.bashrc
+
+
+# GPUの有効化
+ENV NVIDIA_VISIBLE_DEVICES=all
+ENV NVIDIA_DRIVER_CAPABILITIES=all
+
+# エントリーポイント
+ENTRYPOINT [ "/ros_entrypoint.sh" ]
+
+# コマンド
+CMD [ "/bin/bash" ]

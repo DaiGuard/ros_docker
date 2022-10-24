@@ -4,7 +4,7 @@ help()
 {
     echo "usage: run_container.sh [-d | --distro <distro name>]"    
     echo " "
-    echo "-d, --distro  <distroname>: melodic, foxy"
+    echo "-d, --distro  <distroname>: melodic, foxy, noetic"
     exit 2
 }
 
