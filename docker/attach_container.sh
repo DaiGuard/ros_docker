@@ -4,7 +4,7 @@ help()
 {
     echo "usage: attach_container.sh [-d | --distro <distro name>]"    
     echo " "
-    echo "-d, --distro  <distroname>: melodic, foxy, noetic"
+    echo "-d, --distro  <distroname>: kinetic, melodic, foxy, noetic"
     exit 2
 }
 
