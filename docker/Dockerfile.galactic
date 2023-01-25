@@ -29,7 +29,7 @@ RUN groupadd -g $gid $user && \
 WORKDIR /home/$user
 
 # ローカル環境設定
-RUN echo "source /opt/ros/foxy/setup.bash" >> /home/$user/.bashrc
+RUN echo "source /opt/ros/galactic/setup.bash" >> /home/$user/.bashrc
 
 
 # GPUの有効化
