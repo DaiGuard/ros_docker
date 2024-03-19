@@ -1,10 +1,17 @@
 # ros_docker
 
+Docker environment for ROS1(kinetic, melodic, noetic),ROS2(foxy, galactic, humble)
+
 ```bash
-# ビルドイメージ
+# build docker image
 $ ./docker/build_image.sh -d <branch name>
-# コンテナ起動
+# run container
 $ ./docker/run_container.sh -d <branch name>
-# コンテナにアタッチ
+# attach container
 $ ./docker/attach_container.sh -d <branch name>
 ```
+
+## ToDo
+
+[ ] enable gpus options
+[ ] refactoring the code

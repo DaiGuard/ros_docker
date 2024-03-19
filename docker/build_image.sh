@@ -7,7 +7,7 @@ help()
 {
     echo "usage: build_image.sh [-d | --distro <distro name>]"    
     echo " "
-    echo "-d, --distro  <distroname>: kinetic, melodic, noetic, foxy, galactic"
+    echo "-d, --distro  <distroname>: kinetic, melodic, noetic, foxy, galactic, humble"
     exit 2
 }
 
